@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, url_for
 
 app = Flask(__name__)
 
@@ -9,6 +9,6 @@ app.register_blueprint(postsModule)
 
 @app.route('/')
 def index():
-    return "<a href='/admin'>Admin Section</a> | \
-            <a href='/posts'>Posts Section</a>"
-
+    return "<a href='%s'>Admin Section</a> | \
+            <a href='%s'>Posts Section</a>" % (url_for('admin.show'),
+                                               url_for('posts.show'))
