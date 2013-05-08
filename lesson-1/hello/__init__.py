@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 # get the base dir
 base_dir = os.path.dirname(os.path.abspath(__file__))
-app.config.from_pyfile(os.path.join(base_dir, '../app.cfg'))
+app.config.from_pyfile(os.path.join(app.root_path, '../app.cfg'))
 
 # create db
 db = SQLAlchemy(app)
