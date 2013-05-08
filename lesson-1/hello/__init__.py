@@ -6,8 +6,7 @@ import os
 # declaring the app
 app = Flask(__name__)
 
-# get the base dir
-base_dir = os.path.dirname(os.path.abspath(__file__))
+# app.root_path stores the root path of the application
 app.config.from_pyfile(os.path.join(app.root_path, '../app.cfg'))
 
 # create db
