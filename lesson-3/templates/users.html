@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>The time is {{ time.strftime('%H:%M')}}</h1>
+  <ul>
+  {% for person in objects %}
+  <li> {{person.name}}</li>
+  {% endfor %}
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Hello World!</h1>
+  <script type="text/javascript" src="/static/jquery.js"></script>
+  <script type="text/javascript">
+    // JS for testing the User API
+    var listUsers = function(){
+      $.get('/users/', function(data){
+        console.log(data.item);
+      });
+    };
+
+    var addUser = function(name, age){
+      $.post('/users/', data={name: name, age: age}, function(resp){
+          console.log(resp);
+      });
+    }
+
+    var deleteUser = function(id){
+      $.ajax({
+          url: '/users/' + id,
+          type: 'DELETE',
+          success: function(result){
+            console.log(result);
+          }
+      });
+    }
+
+    var editUser = function(id, data){
+      $.ajax({
+          url: '/users/' + id,
+          type: 'PUT',
+          data: data,
+          success: function(result){
+            console.log(result);
+          }
+      });
+    }
+
+    listUsers();
+  </script>
+{% endblock %}
